@@ -1,5 +1,11 @@
 # SXULLM UI
 
+## Install
+
+```
+npm install
+```
+
 ## Develop
 
 ```
