@@ -1,4 +1,4 @@
-import { theme, Card, Layout, Button } from "antd";
+import { theme, Card, Layout, Button, Col } from "antd";
 import { AI_AGENTS_COMPONENTS } from "../../statics";
 import { useNavigate } from "react-router";
 
@@ -14,17 +14,21 @@ export const Agents = () => {
 
   const cards = AI_AGENTS_COMPONENTS.map((v, i) => {
     return (
-      <div
-        style={{
-          width: 250,
-          margin: 15,
-          height: 320,
-        }}
+      <Col
+        xs={{ span: 24, offset: 0 }}
+        sm={{ span: 12, offset: 0 }}
+        md={{ span: 8, offset: 0 }}
+        lg={{ span: 8, offset: 0 }}
+        xl={{ span: 6, offset: 0 }}
+        xxl={{ span: 4, offset: 0 }}
       >
         <Card
           key={i}
           hoverable
           // size="small"
+          style={{
+            margin: "5px 10px",
+          }}
           cover={<img src={v.src} style={{ height: 200 }} />}
           onClick={() => {
             navigate(
@@ -34,7 +38,7 @@ export const Agents = () => {
         >
           <Meta title={v.title} description={v.sub} />
         </Card>
-      </div>
+      </Col>
     );
   });
 
