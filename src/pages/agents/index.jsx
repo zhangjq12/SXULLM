@@ -18,13 +18,15 @@ export const Agents = () => {
         key={i}
         hoverable
         style={{
-          width: 270,
+          width: 250,
           margin: 15,
+          height: 320,
         }}
+        // size="small"
         cover={<img src={v.src} style={{ height: 200 }} />}
         onClick={() => {
           navigate(
-            `/aiagents?iframeSrc=http://10.108.201.193/chat/${v.navigate}&title=${v.title}`
+            `/aiagents?iframeSrc=http://10.108.201.199:3000/chat/${v.navigate}&title=${v.title}`
           );
         }}
       >

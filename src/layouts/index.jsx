@@ -75,7 +75,7 @@ export const PageLayout = () => {
               fontWeight: "bold",
             }}
           >
-            {/* {collapsed ? "" : "山西大学"} */}
+            {collapsed ? "" : "文瀛学者"}
           </div>
         </div>
         <Menu

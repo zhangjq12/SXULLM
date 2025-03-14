@@ -43,7 +43,17 @@ export const Developer = () => {
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}
-        ></div>
+        >
+          <iframe
+            src="http://10.108.201.199:3000/apps"
+            frameBorder={"no"}
+            style={{
+              border: "none",
+              minHeight: "100%",
+              minWidth: "100%",
+            }}
+          ></iframe>
+        </div>
       </Content>
     </>
   );
