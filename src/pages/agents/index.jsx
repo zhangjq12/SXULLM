@@ -65,7 +65,7 @@ export const Agents = () => {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            margin: "16px 0",
+            margin: "16px 0 0 0",
             padding: 24,
             height: "100%",
             background: colorBgContainer,

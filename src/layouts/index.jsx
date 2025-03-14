@@ -25,10 +25,10 @@ const siderStyle = {
 };
 
 const items = [
-  getItem("Deepseek对话", "/", <MessageTwoTone />),
+  getItem("对话大模型", "/", <MessageTwoTone />),
   getItem("智能体广场", "/agents", <ShopTwoTone />),
   getItem(
-    "开发者平台",
+    "创建智能体",
     "/developer",
     <CodeOutlined style={{ color: "rgb(23 119 225)" }} />
   ),
@@ -65,7 +65,7 @@ export const PageLayout = () => {
       >
         <div style={{ margin: 16, display: "flex", alignItems: "center" }}>
           <img
-            src="/public/Sxu_logo.png"
+            src="/Sxu_logo.png"
             style={{ height: 45, width: 45 }}
           ></img>
           <div
@@ -93,11 +93,14 @@ export const PageLayout = () => {
           style={{
             textAlign: "center",
             width: "100%",
+            height: 70,
           }}
         >
-          内容由AI生成，请仔细甄别。
-          <br />
-          山西大学 ©{new Date().getFullYear()} Created by Big Data Institute
+          <div style={{ margin: "-10px 0 0 0" }}>
+            内容由AI生成，请仔细甄别。
+            <br />
+            山西大学 ©{new Date().getFullYear()} Created by Big Data Institute
+          </div>
         </Footer>
       </Layout>
     </Layout>
