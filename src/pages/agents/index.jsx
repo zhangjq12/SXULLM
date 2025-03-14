@@ -14,24 +14,27 @@ export const Agents = () => {
 
   const cards = AI_AGENTS_COMPONENTS.map((v, i) => {
     return (
-      <Card
-        key={i}
-        hoverable
+      <div
         style={{
           width: 250,
           margin: 15,
           height: 320,
         }}
-        // size="small"
-        cover={<img src={v.src} style={{ height: 200 }} />}
-        onClick={() => {
-          navigate(
-            `/aiagents?iframeSrc=http://10.108.201.199:3000/chat/${v.navigate}&title=${v.title}`
-          );
-        }}
       >
-        <Meta title={v.title} description={v.sub} />
-      </Card>
+        <Card
+          key={i}
+          hoverable
+          // size="small"
+          cover={<img src={v.src} style={{ height: 200 }} />}
+          onClick={() => {
+            navigate(
+              `/aiagents?iframeSrc=http://10.108.201.199:3000/chat/${v.navigate}&title=${v.title}`
+            );
+          }}
+        >
+          <Meta title={v.title} description={v.sub} />
+        </Card>
+      </div>
     );
   });
 
