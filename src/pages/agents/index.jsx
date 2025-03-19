@@ -1,9 +1,10 @@
-import { theme, Card, Layout, Button, Col } from "antd";
+import { theme, Card, Layout, Button, Col, Typography } from "antd";
 import { AI_AGENTS_COMPONENTS } from "../../statics";
 import { useNavigate } from "react-router";
 
 const { Meta } = Card;
 const { Header, Content } = Layout;
+const { Text } = Typography;
 
 export const Agents = () => {
   const {
@@ -29,14 +30,19 @@ export const Agents = () => {
           style={{
             margin: "5px 10px",
           }}
-          cover={<img src={v.src} style={{ height: 200 }} />}
+          cover={
+            <img src={v.src} style={{ height: 200, objectFit: "cover" }} />
+          }
           onClick={() => {
             navigate(
-              `/aiagents?iframeSrc=http://10.108.201.199:3000/chat/${v.navigate}&title=${v.title}`
+              `/aiagents?iframeSrc=http://10.108.201.199:3000/${v.navigate}&title=${v.title}`
             );
           }}
         >
-          <Meta title={v.title} description={v.sub} />
+          <Meta
+            title={v.title}
+            description={<Text ellipsis={true}>{v.sub}</Text>}
+          />
         </Card>
       </Col>
     );

@@ -99,7 +99,7 @@ export const PageLayout = () => {
           <div style={{ margin: "-10px 0 0 0" }}>
             内容由AI生成，请仔细甄别。
             <br />
-            山西大学 ©{new Date().getFullYear()} Created by Big Data Institute
+            山西大学 ©{new Date().getFullYear()} Created By 大数据科学产业研究院
           </div>
         </Footer>
       </Layout>

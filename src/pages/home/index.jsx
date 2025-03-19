@@ -16,7 +16,7 @@ export const Home = () => {
           alignItems: "center",
         }}
       >
-        <div style={{ fontSize: 20, fontWeight: "bold" }}>Deepseek对话</div>
+        <div style={{ fontSize: 20, fontWeight: "bold" }}>对话大模型</div>
       </Header>
       <Content
         style={{
