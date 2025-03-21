@@ -1,9 +1,10 @@
 import { theme, Card, Layout, Button, Col, Typography } from "antd";
 import { AI_AGENTS_COMPONENTS } from "../../statics";
 import { useNavigate } from "react-router";
+import { HeaderComponent } from "../../layouts";
 
 const { Meta } = Card;
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const { Text } = Typography;
 
 export const Agents = () => {
@@ -50,25 +51,7 @@ export const Agents = () => {
 
   return (
     <>
-      <Header
-        style={{
-          padding: 0,
-          background: colorBgContainer,
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <Button
-          type="text"
-          style={{ fontSize: 20, fontWeight: "bold" }}
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          {"<"}
-        </Button>
-        <div style={{ fontSize: 20, fontWeight: "bold" }}>智能体广场</div>
-      </Header>
+      <HeaderComponent title={"智能体广场"} isNavigate={true} />
       <Content
         style={{
           margin: "0 16px",

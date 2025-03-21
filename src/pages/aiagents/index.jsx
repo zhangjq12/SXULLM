@@ -1,7 +1,8 @@
-import { theme, Layout, Button } from "antd";
-import { useNavigate, useSearchParams } from "react-router";
+import { theme, Layout } from "antd";
+import { useSearchParams } from "react-router";
+import { HeaderComponent } from "../../layouts";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 export const Aiagents = () => {
   const {
@@ -9,31 +10,10 @@ export const Aiagents = () => {
   } = theme.useToken();
 
   const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
 
   return (
     <>
-      <Header
-        style={{
-          padding: 0,
-          background: colorBgContainer,
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <Button
-          type="text"
-          style={{ fontSize: 20, fontWeight: "bold" }}
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          {"<"}
-        </Button>
-        <div style={{ fontSize: 20, fontWeight: "bold" }}>
-          {searchParams.get("title")}
-        </div>
-      </Header>
+      <HeaderComponent title={searchParams.get("title")} isNavigate={true} />
       <Content
         style={{
           margin: "0 16px",

@@ -90,3 +90,5 @@ export const AI_AGENTS_COMPONENTS = [
   //   navigate: "dJUIt21U3NQ2yi0p",
   // },
 ];
+
+export const ACCOUNT_TYPE = ["student", "faculty"];

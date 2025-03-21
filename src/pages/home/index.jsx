@@ -1,5 +1,6 @@
 import { theme, Layout } from "antd";
-const { Header, Content } = Layout;
+import { HeaderComponent } from "../../layouts";
+const { Content } = Layout;
 
 export const Home = () => {
   const {
@@ -8,16 +9,7 @@ export const Home = () => {
 
   return (
     <>
-      <Header
-        style={{
-          padding: 0,
-          background: colorBgContainer,
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <div style={{ fontSize: 20, fontWeight: "bold" }}>对话大模型</div>
-      </Header>
+      <HeaderComponent title={"对话大模型"} isNavigate={false} />
       <Content
         style={{
           margin: "0 16px",

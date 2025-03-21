@@ -8,6 +8,7 @@
     "dev_host": "vite --host 0.0.0.0",
     "build": "vite build",
     "service": "node ./src/server/index.js",
+    "php": "node ./src/server/php.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -23,6 +24,7 @@
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "cookie-parser": "^1.4.7",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",

@@ -1,6 +1,7 @@
-import { theme, Layout, Button } from "antd";
+import { theme, Layout } from "antd";
 import { useNavigate } from "react-router";
-const { Header, Content } = Layout;
+import { HeaderComponent } from "../../layouts";
+const { Content } = Layout;
 
 export const Developer = () => {
   const {
@@ -11,25 +12,7 @@ export const Developer = () => {
 
   return (
     <>
-      <Header
-        style={{
-          padding: 0,
-          background: colorBgContainer,
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <Button
-          type="text"
-          style={{ fontSize: 20, fontWeight: "bold" }}
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          {"<"}
-        </Button>
-        <div style={{ fontSize: 20, fontWeight: "bold" }}>开发者平台</div>
-      </Header>
+      <HeaderComponent title={"开发者模式"} isNavigate={true} />
       <Content
         style={{
           margin: "0 16px",
