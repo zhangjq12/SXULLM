@@ -1,5 +1,5 @@
 export const registerOpenai = async (auth) => {
-  const response = await fetch("http://10.108.201.199:8080/signup", {
+  const response = await fetch("http://10.108.201.199:8080/api/v1/auths/add", {
     method: "POST",
     mode: "cors",
     body: JSON.stringify(auth),

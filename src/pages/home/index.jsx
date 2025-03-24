@@ -1,11 +1,20 @@
 import { theme, Layout } from "antd";
 import { HeaderComponent } from "../../layouts";
+import { useEffect } from "react";
+import { generateRegisterData } from "../../utils";
 const { Content } = Layout;
 
 export const Home = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  useEffect(() => {
+    const iframe = window.frames["deepseek"];
+    iframe.addEventListener("load", () => {
+      iframe.postMessage(generateRegisterData());
+    });
+  }, []);
 
   return (
     <>
@@ -25,6 +34,7 @@ export const Home = () => {
           }}
         >
           <iframe
+            name="deepseek"
             src="http://10.108.201.199:8080/"
             frameBorder={"no"}
             style={{

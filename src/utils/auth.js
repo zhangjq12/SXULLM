@@ -51,3 +51,20 @@ export const checkSession = () => {
 
   document.location.reload();
 };
+
+export const generateRegisterData = () => {
+  const uid = sessionStorage.getItem("userId");
+  const name = sessionStorage.getItem("userName");
+  const type = sessionStorage.getItem("userType");
+
+  let postfix = "@email.sxu.edu.cn";
+
+  if (type === "faculty") postfix = "@sxu.edu.cn";
+
+  const email = uid + postfix;
+  return {
+    name,
+    email,
+    password: 'abcd1234',
+  }
+};

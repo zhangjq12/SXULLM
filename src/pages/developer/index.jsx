@@ -1,6 +1,7 @@
 import { theme, Layout } from "antd";
 import { useNavigate } from "react-router";
 import { HeaderComponent } from "../../layouts";
+import { useEffect } from "react";
 const { Content } = Layout;
 
 export const Developer = () => {
@@ -9,6 +10,13 @@ export const Developer = () => {
   } = theme.useToken();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const iframe = window.frames["developer"];
+    iframe.addEventListener("load", () => {
+      iframe.postMessage(generateRegisterData());
+    });
+  }, []);
 
   return (
     <>
@@ -28,6 +36,7 @@ export const Developer = () => {
           }}
         >
           <iframe
+            name="developer"
             src="http://10.108.201.199:3000/apps"
             frameBorder={"no"}
             style={{
