@@ -10,10 +10,10 @@ export const Home = () => {
   } = theme.useToken();
 
   useEffect(() => {
-    const iframe = window.frames["deepseek"];
-    iframe.addEventListener("load", () => {
-      iframe.postMessage(generateRegisterData());
-    });
+    const iframe = document.getElementById('deepseek');
+    iframe.onload = () => {
+      iframe.contentWindow.postMessage(generateRegisterData(), '*');
+    };
   }, []);
 
   return (
@@ -34,8 +34,8 @@ export const Home = () => {
           }}
         >
           <iframe
-            name="deepseek"
-            src="http://10.108.201.199:8080/"
+            id="deepseek"
+            src="http://10.108.201.199:8082/"
             frameBorder={"no"}
             style={{
               border: "none",
