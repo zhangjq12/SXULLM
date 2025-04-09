@@ -1,5 +1,4 @@
 import { theme, Layout } from "antd";
-import { useNavigate } from "react-router";
 import { HeaderComponent } from "../../layouts";
 import { useEffect } from "react";
 import { generateRegisterData } from "../../utils";
@@ -9,8 +8,6 @@ export const Developer = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const iframe = document.getElementById("developer");
@@ -38,7 +35,9 @@ export const Developer = () => {
         >
           <iframe
             id="developer"
-            src="http://10.108.201.199:3000/apps"
+            // src="http://10.108.201.199:3000/apps"
+            // src="http://localhost:3000"
+            src={`http://${window.location.hostname}:8230/apps`}
             frameBorder={"no"}
             style={{
               border: "none",

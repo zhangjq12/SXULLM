@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { MessageTwoTone, ShopTwoTone, CodeOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
-import { AppRoutes } from "../../routes/route";
-import { useLocation, useNavigate } from "react-router";
+// import { AppRoutes } from "../../routes/route";
+import { Outlet, useLocation, useNavigate } from "react-router";
 const { Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
@@ -85,7 +85,8 @@ export const PageLayout = () => {
         />
       </Sider>
       <Layout>
-        <AppRoutes />
+        {/* <AppRoutes /> */}
+        <Outlet />
         <Footer
           style={{
             textAlign: "center",

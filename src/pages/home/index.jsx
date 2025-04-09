@@ -35,7 +35,9 @@ export const Home = () => {
         >
           <iframe
             id="deepseek"
-            src="http://10.108.201.199:8082/"
+            // src="http://10.108.201.199:8082/"
+            // src="http://localhost:5173"
+            src={`http://${window.location.hostname}:8280/`}
             frameBorder={"no"}
             style={{
               border: "none",

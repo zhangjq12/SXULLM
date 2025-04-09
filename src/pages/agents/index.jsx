@@ -36,7 +36,7 @@ export const Agents = () => {
           }
           onClick={() => {
             navigate(
-              `/aiagents?iframeSrc=http://10.108.201.199:3000/${v.navigate}&title=${v.title}`
+              `/aiagents?iframeSrc=http://${window.location.hostname}:8230/${v.navigate}&title=${v.title}`
             );
           }}
         >

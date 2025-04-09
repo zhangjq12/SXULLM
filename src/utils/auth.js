@@ -7,7 +7,7 @@ export const getTicket = () => {
 
 export const redirectToAuth = () => {
   window.location.replace(
-    `http://10.108.201.199:8081/login.php?from=${window.location.origin}`
+    `http://${window.location.hostname}:8081/login.php?from=${window.location.origin}`
   );
 };
 
@@ -17,7 +17,7 @@ export const logout = () => {
   sessionStorage.removeItem("userId");
   sessionStorage.removeItem("userType");
   window.location.replace(
-    `http://10.108.201.199:8081/logout.php?from=${window.location.origin}`
+    `http://${window.location.hostname}:8081/logout.php?from=${window.location.origin}`
   );
 };
 
