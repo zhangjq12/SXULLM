@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     checkSession();
     if (sessionStorage.getItem("auth")) return;
-    // redirectToAuth();
+    redirectToAuth();
   }, []);
 
   return (
