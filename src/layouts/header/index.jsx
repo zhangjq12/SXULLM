@@ -1,16 +1,8 @@
-import { theme, Button, Layout, Dropdown, Avatar } from "antd";
+import { theme, Button, Layout } from "antd";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { calculateFrontColorToBackGround, logout } from "../../utils";
 
 const { Header } = Layout;
-
-const menuItems = [
-  {
-    label: "登出",
-    key: "1",
-  },
-];
 
 export const HeaderComponent = ({ title, isNavigate }) => {
   const {
@@ -65,39 +57,6 @@ export const HeaderComponent = ({ title, isNavigate }) => {
         </Button>
       )}
       <div style={{ fontSize: 20, fontWeight: "bold", flex: 1, margin: "0 10px" }}>{title}</div>
-      <Dropdown
-        menu={{
-          items: menuItems,
-          onClick: ({ key }) => {
-            if (key === "1") {
-              logout();
-            }
-          },
-        }}
-      >
-        <Button
-          type={"text"}
-          style={{
-            margin: "0 15px 0 0",
-            display: "flex",
-            alignItems: "center",
-          }}
-          icon={
-            <Avatar
-              style={{
-                backgroundColor: color,
-                color: "white",
-              }}
-            >
-              {user && user[0]}
-            </Avatar>
-          }
-        >
-          <div style={{ fontWeight: "bold", margin: "0 5px" }}>
-            {user && user}
-          </div>
-        </Button>
-      </Dropdown>
     </Header>
   );
 };

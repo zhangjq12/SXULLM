@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { MessageTwoTone, ShopTwoTone, CodeOutlined } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { MessageTwoTone, ShopTwoTone, CodeOutlined, LogoutOutlined } from "@ant-design/icons";
+import { Layout, Menu, Button, Dropdown, Avatar } from "antd";
 // import { AppRoutes } from "../../routes/route";
 import { Outlet, useLocation, useNavigate } from "react-router";
+import { logout, isMobile } from "../../utils";
 const { Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
   return {
@@ -34,15 +35,28 @@ const items = [
   ),
 ];
 
+const dropdownMenuItems = [
+  {
+    label: "登出",
+    key: "1",
+    icon: <LogoutOutlined />,
+  },
+];
+
 export const PageLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [selectedKeys, setSelectedKeys] = useState(["/"]);
+  const [user, setUser] = useState(undefined);
+  const [color, setColor] = useState("orange");
 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
+    setCollapsed(isMobile() ? true : false);
     setSelectedKeys([location.pathname]);
+    setUser(sessionStorage.getItem("userName"));
+    setColor("#ffa500");
   }, [location]);
 
   const menuOnClick = (e) => {
@@ -65,15 +79,16 @@ export const PageLayout = () => {
       >
         <div style={{ margin: 16, display: "flex", alignItems: "center" }}>
           <img src="/Sxu_logo.png" style={{ height: 45, width: 45 }}></img>
-          <div
+          <span
             style={{
               margin: "0 10px",
               fontSize: 18,
               fontWeight: "bold",
+              color: '#042800',
             }}
           >
             {collapsed ? "" : "文瀛学者"}
-          </div>
+          </span>
         </div>
         <Menu
           theme="light"
@@ -83,6 +98,41 @@ export const PageLayout = () => {
           items={items}
           onClick={menuOnClick}
         />
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column-reverse' }}>
+          <Dropdown
+            menu={{
+              items: dropdownMenuItems,
+              onClick: ({ key }) => {
+                if (key === "1") {
+                  logout();
+                }
+              },
+            }}
+            placement="top"
+          >
+            <Button
+              type={"text"}
+              block
+              style={{
+                marginTop: "auto",
+                display: "flex",
+                alignItems: "center",
+              }}
+              icon={
+                <Avatar
+                  style={{
+                    backgroundColor: color,
+                    color: "white",
+                  }}
+                >
+                  {user && user[0]}
+                </Avatar>
+              }
+            >
+              {user && !collapsed ? <div style={{ fontWeight: "bold", margin: "0 5px" }}>{user}</div> : <></>}
+            </Button>
+          </Dropdown>
+        </div>
       </Sider>
       <Layout>
         {/* <AppRoutes /> */}
@@ -97,7 +147,7 @@ export const PageLayout = () => {
           <div style={{ margin: "-10px 0 0 0" }}>
             内容由AI生成，请仔细甄别。
             <br />
-            山西大学 ©{new Date().getFullYear()} Created By 大数据科学产业研究院
+            山西大学 ©{new Date().getFullYear()} Created By 大数据科学与产业研究院
           </div>
         </Footer>
       </Layout>
