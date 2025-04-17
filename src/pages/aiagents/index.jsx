@@ -2,6 +2,7 @@ import { theme, Layout } from "antd";
 import { useSearchParams } from "react-router";
 import { HeaderComponent } from "../../layouts";
 import { generateRegisterData } from "../../utils";
+import { useEffect } from "react";
 
 const { Content } = Layout;
 
