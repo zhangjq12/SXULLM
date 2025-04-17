@@ -16,7 +16,7 @@ export const Aiagents = () => {
   useEffect(() => {
     const iframe = document.getElementById("aiagents");
     iframe.onload = () => {
-      iframe.contentWindow.postMessage(generateRegisterData(), '*');
+      iframe.contentWindow.postMessage(generateRegisterData('aiagents'), '*');
     };
   }, []);
 

@@ -12,7 +12,7 @@ export const Developer = () => {
   useEffect(() => {
     const iframe = document.getElementById("developer");
     iframe.onload = () => {
-      iframe.contentWindow.postMessage(generateRegisterData(), '*');
+      iframe.contentWindow.postMessage(generateRegisterData('developer'), '*');
     };
   }, []);
 

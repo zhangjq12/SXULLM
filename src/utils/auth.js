@@ -52,7 +52,7 @@ export const checkSession = () => {
   document.location.reload();
 };
 
-export const generateRegisterData = () => {
+export const generateRegisterData = (env) => {
   const uid = sessionStorage.getItem("userId");
   const name = sessionStorage.getItem("userName");
   const type = sessionStorage.getItem("userType");
@@ -66,5 +66,6 @@ export const generateRegisterData = () => {
     name,
     email,
     password: 'abcd1234',
+    env
   }
 };
