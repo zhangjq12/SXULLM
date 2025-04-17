@@ -1,6 +1,7 @@
 import { theme, Layout } from "antd";
 import { useSearchParams } from "react-router";
 import { HeaderComponent } from "../../layouts";
+import { generateRegisterData } from "../../utils";
 
 const { Content } = Layout;
 
@@ -10,6 +11,13 @@ export const Aiagents = () => {
   } = theme.useToken();
 
   const [searchParams] = useSearchParams();
+
+  useEffect(() => {
+    const iframe = document.getElementById("aiagents");
+    iframe.onload = () => {
+      iframe.contentWindow.postMessage(generateRegisterData(), '*');
+    };
+  }, []);
 
   return (
     <>
@@ -29,6 +37,7 @@ export const Aiagents = () => {
           }}
         >
           <iframe
+            id="aiagents"
             src={searchParams.get("iframeSrc")}
             frameBorder={"no"}
             style={{
