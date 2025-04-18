@@ -23,9 +23,13 @@ export const Developer = () => {
         const iframeLogin = document.getElementById('difySignUpLogin');
         document.body.removeChild(iframeLogin && iframeLogin)
         const div = document.getElementById("developerContainer");
+        if (document.getElementById('developer')) {
+          div.removeChild(document.getElementById('developer'))
+        }
 
         // const iframe = document.getElementById("developer");
         const iframe = document.createElement('iframe');
+        iframe.id = 'developer'
         iframe.src = `http://${window.location.hostname}:8230/apps`
         iframe.style = 'border: none; min-height: 100%; min-width: 100%'
         div.appendChild(iframe)
