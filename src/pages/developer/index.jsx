@@ -8,37 +8,34 @@ export const Developer = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     difyLogin();
-    setTimeout(() => {
-      setLoading(true);
-      difyLogin();
-    }, 500)
     window.onmessage = (e) => {
       if (e.data.finish) {
         setLoading(false);
-        const iframeLogin = document.getElementById('difySignUpLogin');
-        document.body.removeChild(iframeLogin && iframeLogin)
+        const iframeLogin = document.getElementById("difySignUpLogin");
+        document.body.removeChild(iframeLogin && iframeLogin);
         const div = document.getElementById("developerContainer");
-        if (document.getElementById('developer')) {
-          div.removeChild(document.getElementById('developer'))
+        if (document.getElementById("developer")) {
+          div.removeChild(document.getElementById("developer"));
         }
 
         // const iframe = document.getElementById("developer");
-        const iframe = document.createElement('iframe');
-        iframe.id = 'developer'
-        iframe.src = `http://${window.location.hostname}:8230/apps`
-        iframe.style = 'border: none; min-height: 100%; min-width: 100%'
-        div.appendChild(iframe)
+        const iframe = document.createElement("iframe");
+        iframe.id = "developer";
+        iframe.src = `http://${window.location.hostname}:8230/apps`;
+        iframe.style = "border: none; min-height: 100%; min-width: 100%";
+        div.appendChild(iframe);
+      } else {
+        difyLogin();
       }
-    }
+    };
     // iframe.onload = () => {
     //   iframe.contentWindow.postMessage(generateRegisterData('developer'), '*');
     // };
-
   }, []);
 
   return (
@@ -56,7 +53,7 @@ export const Developer = () => {
             margin: "16px 0 0 0",
             padding: 24,
             height: "100%",
-            minHeight: '100%',
+            minHeight: "100%",
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}

@@ -18,20 +18,18 @@ export const Agents = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     difyLogin();
-    setTimeout(() => {
-      setLoading(true);
-      difyLogin();
-    }, 500)
     window.onmessage = (e) => {
       if (e.data.finish) {
         setLoading(false);
-        const iframeLogin = document.getElementById('difySignUpLogin');
-        document.body.removeChild(iframeLogin && iframeLogin)
+        const iframeLogin = document.getElementById("difySignUpLogin");
+        document.body.removeChild(iframeLogin && iframeLogin);
+      } else {
+        difyLogin();
       }
-    }
-  }, [])
+    };
+  }, []);
 
   const cards = AI_AGENTS_COMPONENTS.map((v, i) => {
     return (
@@ -77,7 +75,6 @@ export const Agents = () => {
           margin: "0 16px",
         }}
       >
-
         <div
           style={{
             display: "flex",
@@ -91,7 +88,6 @@ export const Agents = () => {
         >
           {cards}
         </div>
-
       </Content>
     </>
   );
