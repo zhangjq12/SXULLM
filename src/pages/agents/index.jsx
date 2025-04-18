@@ -21,10 +21,12 @@ export const Agents = () => {
     setLoading(true);
     difyLogin();
     window.onmessage = (e) => {
-      if (e.data.finish) {
+      if (e.data.finish && !e.data.isWindow) {
         setLoading(false);
         const iframeLogin = document.getElementById("difySignUpLogin");
         document.body.removeChild(iframeLogin && iframeLogin);
+      } else if (e.data.isWindow) {
+        setLoading(false);
       } else {
         difyLogin();
       }

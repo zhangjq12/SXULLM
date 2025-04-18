@@ -14,7 +14,7 @@ export const Developer = () => {
     setLoading(true);
     difyLogin();
     window.onmessage = (e) => {
-      if (e.data.finish) {
+      if (e.data.finish && !e.data.isWindow) {
         setLoading(false);
         const iframeLogin = document.getElementById("difySignUpLogin");
         document.body.removeChild(iframeLogin && iframeLogin);
@@ -29,6 +29,8 @@ export const Developer = () => {
         iframe.src = `http://${window.location.hostname}:8230/apps`;
         iframe.style = "border: none; min-height: 100%; min-width: 100%";
         div.appendChild(iframe);
+      } else if (e.data.isWindow) {
+        setLoading(false);
       } else {
         difyLogin();
       }
