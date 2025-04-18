@@ -13,14 +13,14 @@ export const Developer = () => {
   useEffect(() => {
     setLoading(true);
     difyLogin();
+    setTimeout(() => {
+      setLoading(true);
+      difyLogin();
+    }, 500)
     window.onmessage = (e) => {
       if (e.data.finish) {
         setLoading(false);
-        let iframeLogin = document.getElementById('difySignUpLogin');
-        document.body.removeChild(iframeLogin && iframeLogin)
-        difyLogin();
-        setLoading(false);
-        iframeLogin = document.getElementById('difySignUpLogin');
+        const iframeLogin = document.getElementById('difySignUpLogin');
         document.body.removeChild(iframeLogin && iframeLogin)
         const div = document.getElementById("developerContainer");
 
