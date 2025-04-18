@@ -1,7 +1,9 @@
-import { theme, Card, Layout, Button, Col, Typography } from "antd";
+import { theme, Card, Layout, Button, Col, Typography, Spin } from "antd";
 import { AI_AGENTS_COMPONENTS } from "../../statics";
 import { useNavigate } from "react-router";
 import { HeaderComponent } from "../../layouts";
+import { useEffect, useState } from "react";
+import { difyLogin } from "../../utils";
 
 const { Meta } = Card;
 const { Content } = Layout;
@@ -11,8 +13,20 @@ export const Agents = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setLoading(true)
+    const iframe = difyLogin();
+    window.onmessage = (e) => {
+      if (e.data.finish) {
+        setLoading(false);
+        document.body.removeChild(iframe)
+      }
+    }
+  }, [])
 
   const cards = AI_AGENTS_COMPONENTS.map((v, i) => {
     return (
@@ -51,12 +65,14 @@ export const Agents = () => {
 
   return (
     <>
+      <Spin spinning={loading} fullscreen></Spin>
       <HeaderComponent title={"智能体广场"} isNavigate={true} />
       <Content
         style={{
           margin: "0 16px",
         }}
       >
+
         <div
           style={{
             display: "flex",
@@ -70,6 +86,7 @@ export const Agents = () => {
         >
           {cards}
         </div>
+
       </Content>
     </>
   );
