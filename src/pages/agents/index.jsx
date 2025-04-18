@@ -19,11 +19,12 @@ export const Agents = () => {
 
   useEffect(() => {
     setLoading(true)
-    const iframe = difyLogin();
+    difyLogin();
     window.onmessage = (e) => {
       if (e.data.finish) {
         setLoading(false);
-        document.body.removeChild(iframe)
+        const iframeLogin = document.getElementById('difySignUpLogin');
+        document.body.removeChild(iframeLogin && iframeLogin)
       }
     }
   }, [])

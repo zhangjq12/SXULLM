@@ -1,7 +1,7 @@
 import { theme, Layout, Spin } from "antd";
 import { HeaderComponent } from "../../layouts";
 import { useEffect, useState } from "react";
-import { difyLogin, generateRegisterData } from "../../utils";
+import { difyLogin } from "../../utils";
 const { Content } = Layout;
 
 export const Developer = () => {
@@ -12,11 +12,12 @@ export const Developer = () => {
 
   useEffect(() => {
     setLoading(true);
-    const iframeLogin = difyLogin();
+    difyLogin();
     window.onmessage = (e) => {
       if (e.data.finish) {
         setLoading(false);
-        document.body.removeChild(iframeLogin)
+        const iframeLogin = document.getElementById('difySignUpLogin');
+        document.body.removeChild(iframeLogin && iframeLogin)
         const div = document.getElementById("developerContainer");
 
         // const iframe = document.getElementById("developer");

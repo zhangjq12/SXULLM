@@ -72,11 +72,11 @@ export const generateRegisterData = (env) => {
 
 export const difyLogin = () => {
   const iframe = document.createElement('iframe')
-  iframe.src = `http://${window.location.hostname}:8230/apps`
+  iframe.id = 'difySignUpLogin'
+  iframe.src = `http://${window.location.hostname}:8230/signupLogin`
   iframe.onload = () => {
     iframe.contentWindow.postMessage(generateRegisterData('developer'), `http://${window.location.hostname}:8230`);
   }
   iframe.style = "width: 0; height: 0; display: none"
   document.body.appendChild(iframe)
-  return iframe
 }
