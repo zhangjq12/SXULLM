@@ -23,7 +23,11 @@ export const Agents = () => {
     window.onmessage = (e) => {
       if (e.data.finish) {
         setLoading(false);
-        const iframeLogin = document.getElementById('difySignUpLogin');
+        let iframeLogin = document.getElementById('difySignUpLogin');
+        document.body.removeChild(iframeLogin && iframeLogin)
+        difyLogin();
+        setLoading(false);
+        iframeLogin = document.getElementById('difySignUpLogin');
         document.body.removeChild(iframeLogin && iframeLogin)
       }
     }
