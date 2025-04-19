@@ -26,7 +26,7 @@ export const Developer = () => {
         // const iframe = document.getElementById("developer");
         const iframe = document.createElement("iframe");
         iframe.id = "developer";
-        iframe.src = `http://${window.location.hostname}:8230/apps`;
+        iframe.src = `http://${window.location.hostname}:8230/apps?isIframe=true`;
         iframe.style = "border: none; min-height: 100%; min-width: 100%";
         div.appendChild(iframe);
       } else if (e.data.isWindow) {
