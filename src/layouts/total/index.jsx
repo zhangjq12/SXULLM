@@ -145,7 +145,7 @@ export const PageLayout = () => {
           }}
         >
           <div style={{ margin: "-10px 0 0 0" }}>
-            内容由AI生成，请仔细甄别。
+            免责声明：内容由开源AI生成，请仔细甄别。
             <br />
             山西大学 ©{new Date().getFullYear()} Created By 大数据科学与产业研究院
           </div>
